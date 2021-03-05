@@ -1,4 +1,4 @@
-import React from 'react';
+import  React  from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +9,7 @@ import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-import {CTX} from './Store';
+import { CTX } from './Store';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
     chatWindow: {
         width: '70%',
-        heigth: '300px',
+        height: '300px',
         padding: '20px'
     },
     chatBox: {
@@ -38,13 +38,21 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
+// export default function AppWrapper() {
+//     return (
+//         <Store>
+//             <Dashboard />
+//         </Store>
+//     )
+// }
+
 export default function Dashboard() {
 
         
         const classes = useStyles();
 
         // CTX Store
-        const [allChats, sendChatAction] = React.useContext(CTX); 
+        const { allChats, sendChatAction } = React.useContext(CTX);
 
         const topics = Object.keys(allChats);
 

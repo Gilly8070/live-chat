@@ -1,23 +1,25 @@
 import React from 'react';
 import io from 'socket.io-client';
+// import { Provider } from 'react-redux'
+// import Dashboard from './Dashboard';
 
 export const CTX = React.createContext();
 
 const initState = {
     general: [
-        {from: 'aaron', msg: 'hello'},
-        {from: 'arnold', msg: 'hello'},
-        {from: 'archer', msg: 'hello'},
+        {fromm: 'aaron', msg: 'hello'},
+        {fromm: 'arnold', msg: 'hello'},
+        {fromm: 'archer', msg: 'hello'},
     ],
     topic2: [
-        {from: 'aaron', msg: 'hello'},
-        {from: 'arnold', msg: 'hello'},
-        {from: 'archer', msg: 'hello'},
+        {fromm: 'aaron', msg: 'hello'},
+        {fromm: 'arnold', msg: 'hello'},
+        {fromm: 'archer', msg: 'hello'},
     ]
 }
 
 function reducer(state, action) {
-    const [from, msg, topic] = action.payload;
+    const [fromm, msg, topic] = action.payload;
     switch(action.type) {
         case 'RECEIVE_MESSAGE':
             return {
@@ -25,7 +27,7 @@ function reducer(state, action) {
                 [topic]: [
                     ...state[topic],
                     {
-                        from,
+                        fromm,
                         msg
                     }
                 ]
@@ -58,8 +60,10 @@ export default function Store(props) {
     
 
     return (
-        <CTX.Provider value={{allChats, sendChatAction, user}}>
-            {props.children}
-        </CTX.Provider>
+        
+            <CTX.Provider value={{allChats, sendChatAction, user}}>
+                {props.children}
+            </CTX.Provider>
+        
     )
 }
